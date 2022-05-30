@@ -5,12 +5,16 @@ export const AuthContext = createContext();
 function AuthContextProvider({children}) {
     const [isAuth, setAuth] = useState(false);
 
-    const toogleAuth = () => {
-        setAuth(!isAuth);
+    const trueAuth = () => {
+        setAuth(true);
+    }
+
+    const falseAuth = () => {
+      setAuth(false);
     }
 
   return (
-    <AuthContext.Provider value={{isAuth, toogleAuth}}>
+    <AuthContext.Provider value={{isAuth, setAuth, trueAuth, falseAuth}}>
         {children}
     </AuthContext.Provider>
   )
